@@ -1,0 +1,37 @@
+header {
+  background-color: navy;
+  color: azure;
+  height: 70px;
+  padding: 0 0 0.05rem 0;
+}
+body {
+  background-color: gainsboro;
+  color: navy;
+}
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: left;
+}
+#main-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: first baseline;
+  margin: 0.2rem;
+  padding: 0.2rem;
+}
+
+.content {
+  background-color: azure;
+  margin: 0.3rem;
+  padding: 0.3rem;
+}
+#input-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+code {
+  background-color: blanchedalmond;
+}
