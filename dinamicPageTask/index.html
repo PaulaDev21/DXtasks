@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
-
+    <style>
+        h2 {
+            color: blue;
+        }
+        #demo{
+            background-color: yellowgreen;
+            padding: 1rem;
+        }
+    </style>
 <body>
 
     <h2>JavaScript HTML DOM</h2>
@@ -13,13 +21,18 @@
     <p id="demo"></p>
 
     <script>
-        const x = document.getElementById("main");
-        const y = x.getElementsByTagName("p");
+        function printParagraph(position){        
+            const x = document.getElementById("main");
+            const y = x.getElementsByTagName("p");
 
-        document.getElementById("demo").innerHTML =
-            'The first paragraph (index 0) inside "main" is: ' + y[0].innerHTML;
-
+            document.getElementById("demo").innerHTML =
+                'The first paragraph (index 0) inside "main" is: ' + y[position].innerHTML;
+        }
+        printParagraph(1);
     </script>
+
+    <input type="submit" value="First Line" onClick="printParagraph(0)" />
+    <input type="submit" value="Second Line" onClick="printParagraph(1)"/>
 
 </body>
 
