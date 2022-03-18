@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html>
-    <style>
-        h2 {
-            color: blue;
-        }
-        #demo{
-            background-color: yellowgreen;
-            padding: 1rem;
-        }
-    </style>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="changeParagraph.js"></script>
+
+    <title>DX - html/css/js page </title>
+</head>
+
+<style>
+    h2 {
+        color: blue;
+    }
+</style>
+
 <body>
 
     <h2>JavaScript HTML DOM</h2>
@@ -20,19 +27,10 @@
 
     <p id="demo"></p>
 
-    <script>
-        function printParagraph(position){        
-            const x = document.getElementById("main");
-            const y = x.getElementsByTagName("p");
-
-            document.getElementById("demo").innerHTML =
-                'The first paragraph (index 0) inside "main" is: ' + y[position].innerHTML;
-        }
-       
-    </script>
-
     <input type="submit" value="First Line" onClick="printParagraph(0)" />
-    <input type="submit" value="Second Line" onClick="printParagraph(1)"/>
+    <input type="submit" value="Second Line" onClick="printParagraph(1)" />
+
+    <h6 class="footnote">Click here to see a <a href="index-pretty.html">PRETTY VERSION</a>!</h6>
 
 </body>
 

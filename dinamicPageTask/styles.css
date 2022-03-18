@@ -1,0 +1,51 @@
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.footnote{
+    text-align: center;
+}
+
+#mainContainer {
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  width: 80%;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#buttonsBox {
+  display: grid;
+  grid-template-columns: 20% 20%;
+  justify-content: center;
+}
+
+input {
+  background-color: orangered;
+  font-weight: bolder;
+  color: azure;
+  margin: 0.5rem;
+  border-width: 0;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+h2 {
+  color: blue;
+  text-align: center;
+}
+
+#demo {
+  background-color: yellowgreen;
+  padding: 1rem;
+  align-content: center;
+  text-align: center;
+}

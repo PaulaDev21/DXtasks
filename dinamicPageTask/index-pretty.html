@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="changeParagraph.js"></script>
+
+    <title>DX - html/css/js page - pretty version </title>
+</head>
+
+<body>
+    <div id="mainContainer">
+        <h2>JavaScript HTML DOM</h2>
+
+        <div id="main">
+            <p>Finding HTML Elements by Tag Name</p>
+            <p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+        </div>
+
+        <p id="demo">Click on the buttons bellow to change this text.</p>
+
+        <div id="buttonsBox">
+            <input type="submit" value="First Line" onClick="printParagraph(0)" />
+            <input type="submit" value="Second Line" onClick="printParagraph(1)" />
+        </div>
+
+        <h6 class="footnote">Click here to see the <a href="index.html">UGLY VERSION</a>!</h6>
+    </div>
+</body>
+
+</html>
+
+<!-- 
+	HTML:
+    - Add 2 buttons to the html
+    
+    CSS:
+    - make the title blue
+    
+    JS:
+    - When the button 1 is clicked, the "demo" p get the value of the first p of the page
+    - When the button 2 is clicked, the "demo" p get the value of the second p of the page
+-->
