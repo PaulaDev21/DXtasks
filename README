@@ -1,1 +1,17 @@
-# This repository contains the solutions for the 'Take Home Small Task"(Set 47) proposed by DX Software as part of their recruiting process. 
+# This repository contains the solutions for the 'Take Home Small Task"(Set 47) proposed by DX Software as part of their recruiting process.
+
+# Task 1 - javascript string manipulation 
+FOLDER: stringTask
+## Functions to perform the tasks are implemented in "longestVowels.js".
+## I also produced a test html page: "longestVowels.html" with its corresponding styles.css
+
+# Task 2 - simple dynamic html/css/js page
+FOLDER: dinamicPageTask
+## The simple version, with the three tasks asked is in index.html. 
+## The javascript code was transferred to "changeParagraph.js"
+## An additional "pretty" version (styled with css) can be seen in indexPretty.html 
+ => There are links between both pages. 
+
+# Developed by Ana Paula B. Lopes
+# Delivery date: March 18, 2022
+# Recruitment started at Upwork by Paul Tomuta. 
