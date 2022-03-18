@@ -5,65 +5,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css" type="text/css"> 
+    <link rel="stylesheet" href="styles.css" type="text/css">
     <script src="longest-vowels.js"></script>
-    
-    <title>Longest word test task</title>
+
+    <title>DX - String Algorithm </title>
 </head>
 <header>
-    <h1>String Algorithms</h1>
+    <h1>String Algorithm (DX Selection)</h1>
 </header>
+
 <body>
-    
-    <div id="main-container">
-        <div id="tasks">
-        <div class="content">
-            <h2>Task Description</h2>
-            <p>Given a sentence with multiple lowercase words separated by spaces, write a Javascript code that finds the longest word
-            in the sentence. If there are multiple words of the same length, choose one that has the highest number of vowels.
-            Ignore any character in the sentence that is not a letter or a space. Find the most efficient way to achieve this.
-            </p>
-        </div>
-        <div class="content">
-            <h3>
-            Sample input:
-            </h3>
-            <code>
-            “Smart people learn from everything and everyone, average people from their experience, stupid people already, have all
-            the answers” (Socrates)
-            </code>
-            <h3>
-            Sample output:
-            </h3>
-            <code>
-            “experience”
-            </code>
-            <p>
-            Note: Longest words are “everything” and “experience”, but the second has the most vowels
-            </p>
-        </div>
-        </div>
-    
-        <div id="results">
-        
-        <div class="content" >
-            <h2>Testing Area</h2>
-            <div id="input-area">
-                
-                <form action="getLongestVowels.js">
-                    <textarea rows="5" cols="50">Type any text here.</textarea>
-                    <p></p>
-                    <input class="test-now"  onclick="alert(testCode()" type="submit" value="Test Now"/> 
-                </form>
+    <div id="mainContainer">
+        <div class="row">
+            <div class="content">
+                <h2>Task Description</h2>
+                <p>Given a sentence with multiple lowercase words separated by spaces, write a Javascript code that
+                    finds the longest word
+                    in the sentence. If there are multiple words of the same length, choose one that has the highest
+                    number of vowels.
+                    Ignore any character in the sentence that is not a letter or a space. Find the most efficient way to
+                    achieve this.
+                </p>
             </div>
+            <div class="content">
+                <h2>
+                    Sample input:
+                </h2>
+                <br />
+                <code>
+                     'Smart people learn from everything and everyone, average people from their experience, stupid people already, have all the answers” (Socrates) [[RESULT = experience]]'
+                </code>
+                <p>
+                    Note: Longest words are “everything” and “experience”, but the second has the most vowels
+                </p>
+            </div>
+
         </div>
-        <div class="content" id="results">
-            <h2>Results</h2>
-            <code> still nothing </code>
-        </div>
+        <div class="row">
+            <div class="content">
+                <h2>Testing Area</h2>
+                <textarea id="testing" rows="5">"Write any text here to test the algorithm"</textarea>
+                <br />
+                <input class="testNow" type="submit" value="Test Now" onclick="printResult()" />
+                <br />
+            </div>
+            <div class="content" id="results">
+                <h2>Results</h2>
+                <br />
+                <code id="resultArea"> Still nothing, click the orange button to see the results. </code>
+            </div>
         </div>
     </div>
 </body>
-    
+
 </body>
+
 </html>
