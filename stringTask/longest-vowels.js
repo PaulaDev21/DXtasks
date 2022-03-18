@@ -7,14 +7,14 @@
 - Find the most efficient way to achieve this."
 */
 
-/** ------------------html funcions -----------------*/
+/** ------------------page funcion -----------------*/
 
 function printResult() {
     let textInput = document.getElementById('testing');
     let text = textInput.value;
     let textResult;
     if (text == '' || text == null) {
-        alert("Please, add some text for processing.")
+        alert("Please, add some text to be processed.")
         textResult = "Empty text!"
     }
     else {
