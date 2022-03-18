@@ -12,94 +12,98 @@
 function printResult() {
     let textInput = document.getElementById('testing');
     let text = textInput.value;
-    let textResult;
-    if (text == '' || text == null) {
+    let textResult, sortedWords;
+    if (text == '') {
         alert("Please, add some text to be processed.")
         textResult = "Empty text!"
     }
     else {
-        textResult = findLongestVowelsWord(text);
-        textResult = 'The longest word with more vowels in your text is \"<strong>' + textResult + '\"</strong>!'
+        sortedWords = findSortedWords(text);
+        textResult = composeResultString(sortedWords);
     }
 
     let resultElement = document.getElementById("resultArea");
     resultElement.innerHTML = textResult;
 }
 
+function composeResultString(sortedWords) {
+    return '<p>The longest word with more vowels in your text is <strong>' +
+        Object.keys(sortedWords[0])[0] + '</strong> (' +
+        Object.keys(sortedWords[0])[0].length + 'l,' +
+        sortedWords[0][Object.keys(sortedWords[0])[0]] + 'v).</p>' +
+        "<h4>Same size words:</h4>" +
+        "<p>" + sortedWords.reduce(printWordObject, '') + "</p >";
+}
+
+function printWordObject(currentString, newObj) {
+    const keys = Object.keys(newObj);
+    return currentString + "<strong>" + keys[0] + "</strong>" + "(" +
+        newObj[keys[0]] + " vowels) ";
+}
+
 /** --------------- string processing funcions --------------------*/
 
-function findLongestVowelsWord(str) {
-    let words = findLongests(str.toLowerCase());
-    if (words.length == 1) {
-        return words[0];
-    }
-    let vowelsCounts = words.map(countVowels);
-    let maxVowelsIndex = vowelsCounts.reduce(findMaxIndex, 0);
-    return words[maxVowelsIndex];
+function findSortedWords(str) {
+    const wordsWithVowelsCounts = findWords(str);
+    const sortedWords = wordsWithVowelsCounts.sort(reverseOrderBySize);
+    const longestSize = Object.keys(sortedWords[0])[0].length;
+    return sortedWords.filter(removeSmallWords(longestSize))
+        .sort(reverseOrderByVowels);
 }
 
-function findLongests(str) {
-    let words = findWords(str);
-    let longestSize = words.reduce(findLongestSize, 0);
-    words = words.filter(removeOldLongests(longestSize));
-    return removeRepeated(words);
+function removeSmallWords(longestSize) {
+    return function (obj) {
+        let size = Object.keys(obj)[0].length;
+        return size === longestSize;
+    }
 }
 
-function removeRepeated(words) {
-    let index = 0, wordsTail = [];
-    while (index < words.length - 1) {
-        wordsTail = words.slice(index + 1,);
-        if (wordsTail.indexOf(words[index]) >= 0) {
-            words.shift();
-        }
-        else {
-            index++;
-        }
+function reverseOrderBySize(first, second) {
+    const counts1 = Object.keys(first)[0].length;
+    const counts2 = Object.keys(second)[0].length;
+
+    if (counts1 > counts2) {
+        return -1;
     }
-    return words;
+    if (counts1 < counts2) {
+        return 1;
+    }
+    return 0;
 }
 
-function findLongestSize(previousValue, currentValue) {
-    if (currentValue.length >= previousValue) {
-        return currentValue.length;
+function reverseOrderByVowels(first, second) {
+    const counts1 = first[Object.keys(first)[0]];
+    const counts2 = second[Object.keys(second)[0]];
+
+    if (counts1 > counts2) {
+        return -1;
     }
-    else {
-        return previousValue;
+    if (counts1 < counts2) {
+        return 1;
     }
+    return 0;
 }
 
 function findWords(str) {
+    str = str.toLowerCase();
     str = str.replace(/\d+/g, ' ');
     let words = str.match(/\w+\s+|\w+/g);
-    words = words.map(trimWord);
+    words = words.map(trimAndCount);
     return words;
 }
 
-function trimWord(word) {
-    return word.trim();
-}
-
-function removeOldLongests(maxSize) {
-    return function (word) {
-        return (word.length === maxSize);
-    };
+function trimAndCount(word) {
+    let key = word.trim();
+    let value = countVowels(word);
+    let obj = {};
+    obj[key] = value;
+    return obj;
 }
 
 function countVowels(word) {
     let vowels = word.match(/[aeiou]/g);
-    return vowels.length;
-}
-
-function findMaxIndex(previousMaxIndex, currentElem, arrIndex, array) {
-    if (currentElem > array[previousMaxIndex]) {
-        return arrIndex;
+    if (vowels) {
+        return vowels.length;
     }
-    else {
-        return previousMaxIndex;
-    }
+    return 0;
 }
-
-
-
-
-
